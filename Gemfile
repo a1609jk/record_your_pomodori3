@@ -38,6 +38,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+gem 'bcrypt-ruby'
 
 group :doc do
   gem 'sdoc', require: false
