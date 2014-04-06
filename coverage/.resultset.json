@@ -1,6 +1,38 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/succi0303/Dev/record_your_pomodori/record_your_pomodori3/app/controllers/static_pages_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/succi0303/Dev/record_your_pomodori/record_your_pomodori3/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/succi0303/Dev/record_your_pomodori/record_your_pomodori3/app/controllers/users_controller.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/Users/succi0303/Dev/record_your_pomodori/record_your_pomodori3/app/models/user.rb": [
         1,
         1,
@@ -18,6 +50,6 @@
         null
       ]
     },
-    "timestamp": 1396787334
+    "timestamp": 1396789047
   }
 }

@@ -1,4 +1,6 @@
 RecordYourPomodori3::Application.routes.draw do
+  resources :users
+
   get 'static_pages/index'
 
   match '/about',   to: 'static_pages#about',   via: 'get'

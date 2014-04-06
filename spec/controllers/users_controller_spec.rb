@@ -21,9 +21,17 @@ describe UsersController do
 
   describe 'GET #new' do
 
-    it "assigns a new user to @user"
+    before :each do
+      get :new
+    end
 
-    it "renders the :new template"
+    it "assigns a new user to @user" do
+      expect(assigns(:user)).to be_a_new(User)
+    end
+
+    it "renders the :new template" do
+      expect(response).to render_template(:new)
+    end
   end
 
   describe 'GET #edit' do
