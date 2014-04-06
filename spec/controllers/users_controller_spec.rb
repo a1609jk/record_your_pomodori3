@@ -45,16 +45,31 @@ describe UsersController do
 
     context 'with valid information' do
 
-      it "saves the new user in the database"
+      it "saves the new user in the database" do
+        expect{
+          post :create, user: attributes_for(:user)
+        }.to change(User, :count).by(1)
+      end
 
-      it "redirects to #show"
+      it "redirects to #show" do
+        post :create, user: attributes_for(:user)
+        expect(response).to redirect_to user_path(assigns(:user))
+      end
     end
 
     context 'with invalid information' do
 
-      it "does not save the user in the database"
+      it "does not save the user in the database" do
+        expect{
+          post :create,
+            user: attributes_for(:user, email: nil)
+        }.to_not change(User, :count)
+      end
 
-      it "re-renders the :new template"
+      it "re-renders the :new template" do
+        post :create, user: attributes_for(:user, email: nil)
+        expect(response).to render_template(:new)
+      end
     end
   end
 
