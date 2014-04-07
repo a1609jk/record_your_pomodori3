@@ -2,6 +2,23 @@ require "spec_helper"
 
 describe "users page" do
 
+  describe "profile page" do
+    let(:user) { create(:user) }
+
+    before :each do 
+      visit user_path(user)
+    end
+
+    it "has the title user name" do
+      expect(page).to have_title(user.name)
+    end
+
+    it "has the content user name" do
+      expect(page).to have_content(user.name)
+    end
+
+  end
+
   describe "signup page" do
 
     before :each do
