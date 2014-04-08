@@ -1,6 +1,6 @@
 class MonthlyReportsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :edit]
-  before_action :correct_user, only: [:new, :create, :edit]
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @user = User.find(params[:user_id])
@@ -22,6 +22,27 @@ class MonthlyReportsController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @monthly_report = @user.monthly_reports.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @monthly_report = @user.monthly_reports.find(params[:id])
+
+    if @monthly_report.update(monthly_report_params)
+      redirect_to user_path(@user),
+        notice: '月間レポートは正しく更新されました'
+    else
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @monthly_report = @user.monthly_reports.find(params[:id])
+    @monthly_report.destroy
+
+    redirect_to user_path(@user),
+      notice: '月間レポートは正しく削除されました'
   end
 
   private

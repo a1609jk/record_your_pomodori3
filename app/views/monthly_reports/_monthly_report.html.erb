@@ -15,7 +15,9 @@
       edit_user_monthly_report_path(monthly_report.user.id, monthly_report.id),
       class: 'btn btn-warning btn-xs' %>
     <%= link_to fa_icon('times-circle', text: '削除'),
-      '#',
+      user_monthly_report_path(monthly_report.user.id, monthly_report.id),
+      method: :delete,
+      data: { confirm: '削除してよろしいですか？' },
       class: 'btn btn-danger btn-xs' %>
   </td>
 </tr>
