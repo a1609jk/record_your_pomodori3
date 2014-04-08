@@ -2,6 +2,11 @@ class MonthlyReportsController < ApplicationController
   before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:new, :create, :edit, :update, :destroy]
 
+  def show
+    @user = User.find(params[:user_id])
+    @monthly_report = @user.monthly_reports.find(params[:id])
+  end
+
   def new
     @user = User.find(params[:user_id])
     @monthly_report = @user.monthly_reports.new

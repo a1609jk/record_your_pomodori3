@@ -7,6 +7,22 @@ describe MonthlyReportsController do
     controller.stub!(:current_user?).and_return(true)
   end
 
+  describe 'GET #show' do
+    
+    before :each do
+      @monthly_report = create(:monthly_report)
+      get :show, id: @monthly_report, user_id: @monthly_report.user.id
+    end
+
+    it "assigns the requested monthly report to @monthly_report" do
+      expect(assigns(:monthly_report)).to eq @monthly_report
+    end
+
+    it "renders the :show template" do
+      expect(response).to render_template(:show)
+    end
+  end
+
   describe 'GET #new' do
 
     before :each do

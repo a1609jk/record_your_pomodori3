@@ -1,0 +1,58 @@
+<%
+  page_title = "#{@monthly_report.year}年#{@monthly_report.month}月の月間レポート"
+  provide(:title, page_title)
+%>
+
+<div class="container">
+
+  <div class="page-header">
+    <h2>
+      <%= "#{@monthly_report.year}年#{@monthly_report.month}月の月間レポート" %>
+    </h2>
+  </div>
+
+  <p>
+    <%= link_to '一覧に戻る',
+      user_path(@user),
+      class: 'btn btn-default' %>
+  </p>
+
+  <p>
+    <%= link_to fa_icon('pencil-square-o', text: 'デイリーレポートを登録する'),
+      '#',
+      class: 'btn btn-success' %>
+  </p>
+
+  <div class="summary panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">今月の集計</h3>
+    </div>
+    <div class="panel-body">
+      <dl>
+        <dt>登録件数</dt>
+        <dd>0 件</dd>
+        <dt>合計ポモドーリ</dt>
+        <dd>0 件</dd>
+        <dt>合計タスク完了</dt>
+        <dd>0 件</dd>
+        <dt>平均／日 ポモドーリ</dt>
+        <dd>0 件</dd>
+        <dt>平均／日 タスク完了</dt>
+        <dd>0 件</dd>
+      </dl>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>年</th>
+      <th>月</th>
+      <th>日</th>
+      <th>ポモドーリ</th>
+      <th>タスク完了</th>
+      <th>メモ</th>
+      <th>修正 / 削除</th>
+
+    </tr>
+  </table>
+</div>
