@@ -1,4 +1,6 @@
 class MonthlyReportsController < ApplicationController
+  before_action :signed_in_user, only: [:new, :create]
+  before_action :correct_user, only: [:new, :create]
 
   def new
     @user = User.find(params[:user_id])
@@ -21,5 +23,14 @@ class MonthlyReportsController < ApplicationController
 
     def monthly_report_params
       params.require(:monthly_report).permit(:year, :month, :memo)
+    end
+
+    def signed_in_user
+      redirect_to signin_url, notice: 'サインインしてください' unless signed_in?
+    end
+
+    def correct_user
+      @user = User.find(params[:user_id])
+      redirect_to(root_path) unless current_user?(@user)
     end
 end

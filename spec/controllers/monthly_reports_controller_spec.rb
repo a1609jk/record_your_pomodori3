@@ -5,6 +5,8 @@ describe MonthlyReportsController do
   describe 'GET #new' do
 
     before :each do
+      controller.stub!(:signed_in?).and_return(true)
+      controller.stub!(:current_user?).and_return(true)
       user = create(:user)
       get :new, user_id: user.id
     end
@@ -21,6 +23,8 @@ describe MonthlyReportsController do
   describe 'POST #create' do
 
     before :each do
+      controller.stub!(:signed_in?).and_return(true)
+      controller.stub!(:current_user?).and_return(true)
       @monthly_report = build(:monthly_report)
     end
 
