@@ -5,4 +5,31 @@
   <div class="page-header">
     <h2><%= @user.name %></h2>
   </div>
+
+  <p>
+    <%= link_to fa_icon('pencil-square-o', text: '月間レポートを登録する'),
+      '#',
+      class: 'btn btn-success' %>
+  </p>
+
+  <%= will_paginate @monthly_reports, renderer: BootstrapPagination::Rails %>
+
+  <table class="table table-bordered table-striped">
+    <tr>
+      <td>年</td>
+      <td>月</td>
+      <td>メモ</td>
+      <td>登録件数</td>
+      <td>ポモドーリ</td>
+      <td>タスク完了</td>
+      <td>詳細</td>
+      <td>修正 / 削除</td>
+
+      <% if @user.monthly_reports.any? %>
+        <%= render @monthly_reports %>
+      <% end %>
+    </tr>
+  </table>
+
+  <%= will_paginate @monthly_reports, renderer: BootstrapPagination::Rails %>
 </div>

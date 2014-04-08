@@ -7,6 +7,7 @@ describe UsersController do
   describe 'GET #show' do
 
     before :each do
+      controller.stub!(:signed_in?).and_return(true)
       get :show, id: user
     end
 

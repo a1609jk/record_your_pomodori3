@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  before_action :signed_in_user, only: [:show, :edit, :update]
   
   def show
     @user = User.find(params[:id])
+    @monthly_reports = @user.monthly_reports.paginate(page: params[:page])
   end
 
   def new
@@ -23,5 +25,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                   :password_confirmation)
+    end
+
+    def signed_in_user
+      redirect_to signin_url, notice: "サインインしてください" unless signed_in?
     end
 end

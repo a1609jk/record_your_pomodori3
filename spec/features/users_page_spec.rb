@@ -6,6 +6,7 @@ describe "users page" do
     let(:user) { create(:user) }
 
     before :each do 
+      sign_in user
       visit user_path(user)
     end
 

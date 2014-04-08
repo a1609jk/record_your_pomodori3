@@ -1,0 +1,21 @@
+<tr>
+  <td><%= monthly_report.year %></td>
+  <td><%= monthly_report.month %></td>
+  <td><%= monthly_report.memo %></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>
+    <%= link_to fa_icon('info-circle', text: '詳細'),
+      '#',
+      class: 'btn btn-info btn-xs' %>
+  </td>
+  <td>
+    <%= link_to fa_icon('check-circle', text: '修正'),
+      '#',
+      class: 'btn btn-warning btn-xs' %>
+    <%= link_to fa_icon('times-circle', text: '削除'),
+      '#',
+      class: 'btn btn-danger btn-xs' %>
+  </td>
+</tr>
