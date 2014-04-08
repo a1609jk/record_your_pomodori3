@@ -12,7 +12,7 @@
   </td>
   <td>
     <%= link_to fa_icon('check-circle', text: '修正'),
-      '#',
+      edit_user_monthly_report_path(monthly_report.user.id, monthly_report.id),
       class: 'btn btn-warning btn-xs' %>
     <%= link_to fa_icon('times-circle', text: '削除'),
       '#',

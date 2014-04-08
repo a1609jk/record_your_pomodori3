@@ -1,0 +1,13 @@
+<% provide(:title, '月間レポート更新') %>
+
+<div class="container">
+  <div class="page-header">
+    <h2>月間レポート更新</h2>
+  </div>
+
+  <p>
+    <%= link_to '一覧に戻る', user_path(@user), class: 'btn btn-default' %>
+  </p>
+
+  <%= render 'form' %>
+</div>
