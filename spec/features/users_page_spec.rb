@@ -6,8 +6,10 @@ describe "users page" do
     let(:user) { create(:user) }
 
     before :each do 
-      sign_in user
-      visit user_path(user)
+      visit signin_path
+      fill_in 'メールアドレス', with: user.email
+      fill_in 'パスワード', with: user.password
+      click_button 'サインイン'
     end
 
     it "has the title user name" do
