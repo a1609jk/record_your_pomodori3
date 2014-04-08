@@ -1,5 +1,7 @@
 RecordYourPomodori3::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :monthly_reports, only: [:new, :create, :edit, :update, :destroy]
+  end
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'static_pages/index'
