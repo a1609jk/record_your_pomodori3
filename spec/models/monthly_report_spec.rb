@@ -25,6 +25,10 @@ describe MonthlyReport do
     it "has user_id" do
       expect(monthly_report).to respond_to(:user_id)
     end
+
+    it "has daily_reports" do
+      expect(monthly_report).to respond_to(:daily_reports)
+    end
   end
 
   it "is invalid without year" do

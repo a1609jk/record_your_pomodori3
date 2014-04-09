@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408041419) do
+ActiveRecord::Schema.define(version: 20140409003818) do
+
+  create_table "daily_reports", force: true do |t|
+    t.integer  "day"
+    t.integer  "pomodori"
+    t.integer  "task"
+    t.string   "memo"
+    t.integer  "monthly_report_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "daily_reports", ["monthly_report_id"], name: "index_daily_reports_on_monthly_report_id"
 
   create_table "monthly_reports", force: true do |t|
     t.integer  "year"

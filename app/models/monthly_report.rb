@@ -1,4 +1,5 @@
 class MonthlyReport < ActiveRecord::Base
+  has_many :daily_reports, dependent: :destroy
   belongs_to :user
 
   validates :year,
