@@ -9,7 +9,7 @@
         </div>
         <div class="panel-body">
           <ul>
-            <% daily_report.errors.full_messages.each do |f| %>
+            <% @daily_report.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
