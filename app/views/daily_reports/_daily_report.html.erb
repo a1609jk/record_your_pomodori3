@@ -1,0 +1,16 @@
+<tr>
+  <td><%= daily_report.monthly_report.year %></td>
+  <td><%= daily_report.monthly_report.month %></td>
+  <td><%= daily_report.day %></td>
+  <td><%= daily_report.pomodori %></td>
+  <td><%= daily_report.task %></td>
+  <td><%= daily_report.memo %></td>
+  <td>
+    <%= link_to fa_icon('check-circle', text: '修正'),
+      '#',
+      class: 'btn btn-warning btn-xs' %>
+    <%= link_to fa_icon('times-circle', text: '削除'),
+      '#',
+      class: 'btn btn-danger btn-xs' %>
+  </td>
+</tr>

@@ -5,6 +5,7 @@ class MonthlyReportsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @monthly_report = @user.monthly_reports.find(params[:id])
+    @daily_reports = @monthly_report.daily_reports.order('day DESC')
   end
 
   def new
