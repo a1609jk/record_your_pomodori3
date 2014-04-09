@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @monthly_reports = @user.monthly_reports.paginate(page: params[:page])
+    @monthly_reports = @user.monthly_reports.paginate(page: params[:page]).order('year DESC, month DESC')
   end
 
   def new
