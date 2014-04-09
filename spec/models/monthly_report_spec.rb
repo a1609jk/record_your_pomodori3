@@ -85,4 +85,67 @@ describe MonthlyReport do
       build(:monthly_report, year: 2014, month: 4, user_id: 1)
     ).to have(1).errors_on(:month)
   end
+
+  describe "summary information" do
+
+    before :each do
+      @monthly_report = create(:monthly_report, year: 2014, month: 4)
+      @daily_report_1 = @monthly_report.daily_reports.create(
+        day: 1, pomodori: 10, task: 8, memo: 'test'
+      )
+      @daily_report_2 = @monthly_report.daily_reports.create(
+        day: 2, pomodori: 5, task: 4, memo: 'test'
+      )
+    end
+
+    it "returns count of daily reports by years" do
+      expect(MonthlyReport.count_by_years(
+        @monthly_report.year, @monthly_report.month
+      )).to eq(2)
+    end
+
+    it "returns pomodori sum of daily reports by years" do
+      expect(MonthlyReport.pomodori_sum_by_years(
+        @monthly_report.year, @monthly_report.month
+      )).to eq(15)
+    end
+
+    it "returns task sum of daily reports by years" do
+      expect(MonthlyReport.task_sum_by_years(
+        @monthly_report.year, @monthly_report.month
+      )).to eq(12)
+    end
+
+    it "returns pomodori average of daily reports by years" do
+      expect(MonthlyReport.pomodori_average_by_years(
+        @monthly_report.year, @monthly_report.month
+      )).to eq(7.5)
+    end
+
+    it "returns task sum of daily reports by years" do
+      expect(MonthlyReport.task_average_by_years(
+        @monthly_report.year, @monthly_report.month
+      )).to eq(6)
+    end
+
+    context "there is no daily report" do
+      
+      before :each do
+        @monthly_report_no_task = create(:monthly_report, year: 2014, month: 5)
+      end
+
+      it "returns 0 by pomodori average" do
+        expect(MonthlyReport.pomodori_average_by_years(
+          @monthly_report_no_task.year, @monthly_report_no_task.month
+        )).to eq(0)
+      end
+
+      it "returns 0 by task average" do
+        expect(MonthlyReport.task_average_by_years(
+          @monthly_report_no_task.year, @monthly_report_no_task.month
+        )).to eq(0)
+      end
+    end
+
+  end
 end

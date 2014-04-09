@@ -1,4 +1,6 @@
 class DailyReportsController < ApplicationController
+  before_action :signed_in_user
+  before_action :correct_user
 
   def new
     @user = User.find(params[:user_id])
@@ -51,4 +53,14 @@ class DailyReportsController < ApplicationController
     def daily_report_params
       params.require(:daily_report).permit(:day, :pomodori, :task, :memo)
     end
+
+    def signed_in_user
+      redirect_to signin_url, notice: 'サインインしてください' unless signed_in?
+    end
+
+    def correct_user
+      @user = User.find(params[:user_id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
 end
+

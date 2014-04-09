@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe DailyReportsController do
 
+  before :each do
+    controller.stub!(:signed_in?).and_return(true)
+    controller.stub!(:current_user?).and_return(true)
+  end
+
   describe 'GET #new' do
 
     before :each do
