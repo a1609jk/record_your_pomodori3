@@ -7,10 +7,20 @@
   <td><%= daily_report.memo %></td>
   <td>
     <%= link_to fa_icon('check-circle', text: '修正'),
-      '#',
+      edit_user_monthly_report_daily_report_path(
+        daily_report.monthly_report.user,
+        daily_report.monthly_report,
+        daily_report
+      ),
       class: 'btn btn-warning btn-xs' %>
     <%= link_to fa_icon('times-circle', text: '削除'),
-      '#',
+      user_monthly_report_daily_report_path(
+        daily_report.monthly_report.user,
+        daily_report.monthly_report,
+        daily_report
+      ),
+      method: :delete,
+      data: { confirm: '削除してよろしいですか？' },
       class: 'btn btn-danger btn-xs' %>
   </td>
 </tr>
