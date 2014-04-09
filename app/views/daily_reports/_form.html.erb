@@ -1,0 +1,46 @@
+<%= form_for([@daily_report.monthly_report.user, @daily_report.monthly_report, @daily_report]) do |f| %>
+  <% if @daily_report.errors.any? %>
+    <p>
+      <div id="error_explanation" class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= @daily_report.errors.count %>件のエラーが発生しました
+          </h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <% daily_report.errors.full_messages.each do |f| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </p>
+  <% end %>
+
+  <p>
+    <div class="field form-group">
+      <%= f.label :day, '日' %>
+      <%= f.number_field :day, class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :pomodori, 'ポモドーリ' %>
+      <%= f.number_field :pomodori, class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :task, 'タスク完了' %>
+      <%= f.number_field :task, class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :memo, 'メモ' %>
+      <%= f.text_area :memo, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit '更新する', class: 'btn btn-primary' %>
+    </div>
+  </p>
+<% end %>

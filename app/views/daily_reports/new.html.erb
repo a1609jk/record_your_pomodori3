@@ -1,0 +1,14 @@
+<% provide(:title, "#{@monthly_report.year}年#{@monthly_report.month}月のデイリーレポート登録") %>
+
+<div class="container">
+
+  <div class="page-header">
+    <h2><%= "#{@monthly_report.year}年#{@monthly_report.month}月のデイリーレポート登録" %></h2>
+  </div>
+
+  <%= link_to '月間レポートに戻る',
+    user_monthly_report_path(@monthly_report.user, @monthly_report),
+    class: 'btn btn-default' %>
+
+  <%= render 'form' %>
+</div>

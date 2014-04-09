@@ -1,6 +1,8 @@
 RecordYourPomodori3::Application.routes.draw do
   resources :users do
-    resources :monthly_reports, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :monthly_reports, only: [:show, :new, :create, :edit, :update, :destroy] do
+      resources :daily_reports, only: [:new, :create, :edit, :update, :destroy]
+    end
   end
   resources :sessions, only: [:new, :create, :destroy]
 
