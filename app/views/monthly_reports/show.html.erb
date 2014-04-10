@@ -2,6 +2,9 @@
   page_title = "#{@monthly_report.year}年#{@monthly_report.month}月の月間レポート"
   provide(:title, page_title)
 %>
+<% content_for :head do %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% end %>
 
 <div class="container">
 
@@ -41,6 +44,15 @@
         <dd><%= task_average_by_years(@monthly_report.year, @monthly_report.month) %> 件</dd>
       </dl>
     </div>
+  </div>
+
+  <div class="graph">
+    <%=
+      column_chart [
+        { name: 'ポモドーリ', data: @graph_data_pomodori },
+        { name: 'タスク完了', data: @graph_data_task}
+      ]
+    %>
   </div>
 
   <table class="table table-bordered table-striped">

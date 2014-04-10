@@ -39,6 +39,7 @@ gem 'font-awesome-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'bcrypt-ruby'
+gem 'chartkick'
 
 group :doc do
   gem 'sdoc', require: false

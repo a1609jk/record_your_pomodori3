@@ -6,6 +6,9 @@ class MonthlyReportsController < ApplicationController
     @user = User.find(params[:user_id])
     @monthly_report = @user.monthly_reports.find(params[:id])
     @daily_reports = @monthly_report.daily_reports.order('day DESC')
+
+    @graph_data_pomodori = @monthly_report.daily_reports.order('day ASC').group(:day).sum(:pomodori)
+    @graph_data_task = @monthly_report.daily_reports.order('day ASC').group(:day).sum(:task)
   end
 
   def new
