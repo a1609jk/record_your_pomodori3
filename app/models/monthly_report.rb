@@ -27,7 +27,8 @@ class MonthlyReport < ActiveRecord::Base
   def self.pomodori_average_by_years(year, month)
     count = count_by_years(year, month)
     if count != 0
-      pomodori_sum_by_years(year, month) / count.to_f
+      average = pomodori_sum_by_years(year, month) / count.to_f
+      average.round(1)
     else
       0
     end
@@ -36,7 +37,8 @@ class MonthlyReport < ActiveRecord::Base
   def self.task_average_by_years(year, month)
     count = count_by_years(year, month)
     if count != 0
-      task_sum_by_years(year, month) / count.to_f
+      average = task_sum_by_years(year, month) / count.to_f
+      average.round(1)
     else
       0
     end
