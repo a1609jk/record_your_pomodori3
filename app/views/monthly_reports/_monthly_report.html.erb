@@ -8,7 +8,8 @@
   <td>
     <%= link_to fa_icon('info-circle', text: '詳細'),
       user_monthly_report_path(monthly_report.user.id, monthly_report.id),
-      class: 'btn btn-info btn-xs' %>
+      class: 'btn btn-info btn-xs',
+      data: { 'no-turbolink' => true } %>
   </td>
   <td>
     <%= link_to fa_icon('check-circle', text: '修正'),
