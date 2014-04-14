@@ -100,31 +100,31 @@ describe MonthlyReport do
 
     it "returns count of daily reports by years" do
       expect(MonthlyReport.count_by_years(
-        @monthly_report.year, @monthly_report.month
+        @monthly_report.user, @monthly_report.year, @monthly_report.month
       )).to eq(2)
     end
 
     it "returns pomodori sum of daily reports by years" do
       expect(MonthlyReport.pomodori_sum_by_years(
-        @monthly_report.year, @monthly_report.month
+        @monthly_report.user, @monthly_report.year, @monthly_report.month
       )).to eq(15)
     end
 
     it "returns task sum of daily reports by years" do
       expect(MonthlyReport.task_sum_by_years(
-        @monthly_report.year, @monthly_report.month
+        @monthly_report.user, @monthly_report.year, @monthly_report.month
       )).to eq(12)
     end
 
     it "returns pomodori average of daily reports by years" do
       expect(MonthlyReport.pomodori_average_by_years(
-        @monthly_report.year, @monthly_report.month
+        @monthly_report.user, @monthly_report.year, @monthly_report.month
       )).to eq(7.5)
     end
 
     it "returns task sum of daily reports by years" do
       expect(MonthlyReport.task_average_by_years(
-        @monthly_report.year, @monthly_report.month
+        @monthly_report.user, @monthly_report.year, @monthly_report.month
       )).to eq(6)
     end
 
@@ -136,13 +136,13 @@ describe MonthlyReport do
 
       it "returns 0 by pomodori average" do
         expect(MonthlyReport.pomodori_average_by_years(
-          @monthly_report_no_task.year, @monthly_report_no_task.month
+          @monthly_report_no_task.user, @monthly_report_no_task.year, @monthly_report_no_task.month
         )).to eq(0)
       end
 
       it "returns 0 by task average" do
         expect(MonthlyReport.task_average_by_years(
-          @monthly_report_no_task.year, @monthly_report_no_task.month
+          @monthly_report_no_task.user, @monthly_report_no_task.year, @monthly_report_no_task.month
         )).to eq(0)
       end
     end

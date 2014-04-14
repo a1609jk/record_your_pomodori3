@@ -33,15 +33,15 @@
     <div class="panel-body">
       <dl>
         <dt>登録件数</dt>
-        <dd><%= count_by_years(@monthly_report.year, @monthly_report.month) %> 件</dd>
+        <dd><%= count_by_years(@monthly_report.user, @monthly_report.year, @monthly_report.month) %> 件</dd>
         <dt>合計ポモドーリ</dt>
-        <dd><%= pomodori_sum_by_years(@monthly_report.year, @monthly_report.month) %> 件</dd>
+        <dd><%= pomodori_sum_by_years(@monthly_report.user, @monthly_report.year, @monthly_report.month) %> 件</dd>
         <dt>合計タスク完了</dt>
-        <dd><%= task_sum_by_years(@monthly_report.year, @monthly_report.month) %> 件</dd>
+        <dd><%= task_sum_by_years(@monthly_report.user, @monthly_report.year, @monthly_report.month) %> 件</dd>
         <dt>平均／日 ポモドーリ</dt>
-        <dd><%= pomodori_average_by_years(@monthly_report.year, @monthly_report.month) %> 件</dd>
+        <dd><%= pomodori_average_by_years(@monthly_report.user, @monthly_report.year, @monthly_report.month) %> 件</dd>
         <dt>平均／日 タスク完了</dt>
-        <dd><%= task_average_by_years(@monthly_report.year, @monthly_report.month) %> 件</dd>
+        <dd><%= task_average_by_years(@monthly_report.user, @monthly_report.year, @monthly_report.month) %> 件</dd>
       </dl>
     </div>
   </div>
