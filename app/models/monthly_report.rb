@@ -12,32 +12,32 @@ class MonthlyReport < ActiveRecord::Base
   validates :user_id,
     presence: true
 
-  def self.count_by_years(year, month)
-    where(year: year, month: month)[0].daily_reports.count
+  def self.count_by_years(user, year, month)
+    where(user_id: user, year: year, month: month)[0].daily_reports.count
   end
 
-  def self.pomodori_sum_by_years(year, month)
-    where(year: year, month: month)[0].daily_reports.sum(:pomodori)
+  def self.pomodori_sum_by_years(user, year, month)
+    where(user_id: user, year: year, month: month)[0].daily_reports.sum(:pomodori)
   end
 
-  def self.task_sum_by_years(year, month)
-    where(year: year, month: month)[0].daily_reports.sum(:task)
+  def self.task_sum_by_years(user, year, month)
+    where(user_id: user, year: year, month: month)[0].daily_reports.sum(:task)
   end
 
-  def self.pomodori_average_by_years(year, month)
-    count = count_by_years(year, month)
+  def self.pomodori_average_by_years(user, year, month)
+    count = count_by_years(user, year, month)
     if count != 0
-      average = pomodori_sum_by_years(year, month) / count.to_f
+      average = pomodori_sum_by_years(user, year, month) / count.to_f
       average.round(1)
     else
       0
     end
   end
 
-  def self.task_average_by_years(year, month)
-    count = count_by_years(year, month)
+  def self.task_average_by_years(user, year, month)
+    count = count_by_years(user, year, month)
     if count != 0
-      average = task_sum_by_years(year, month) / count.to_f
+      average = task_sum_by_years(user, year, month) / count.to_f
       average.round(1)
     else
       0

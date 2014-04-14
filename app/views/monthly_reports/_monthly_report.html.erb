@@ -2,9 +2,9 @@
   <td><%= monthly_report.year %></td>
   <td><%= monthly_report.month %></td>
   <td><%= monthly_report.memo %></td>
-  <td><%= count_by_years(monthly_report.year, monthly_report.month) %></td>
-  <td><%= pomodori_sum_by_years(monthly_report.year, monthly_report.month) %></td>
-  <td><%= task_sum_by_years(monthly_report.year, monthly_report.month) %></td>
+  <td><%= count_by_years(monthly_report.user, monthly_report.year, monthly_report.month) %></td>
+  <td><%= pomodori_sum_by_years(monthly_report.user, monthly_report.year, monthly_report.month) %></td>
+  <td><%= task_sum_by_years(monthly_report.user, monthly_report.year, monthly_report.month) %></td>
   <td>
     <%= link_to fa_icon('info-circle', text: '詳細'),
       user_monthly_report_path(monthly_report.user.id, monthly_report.id),
