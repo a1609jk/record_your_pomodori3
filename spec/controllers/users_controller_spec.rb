@@ -7,8 +7,8 @@ describe UsersController do
   describe 'GET #show' do
 
     before :each do
-      controller.stub!(:signed_in?).and_return(true)
-      controller.stub!(:current_user?).and_return(true)
+      controller.stub(:signed_in?).and_return(true)
+      controller.stub(:current_user?).and_return(true)
       get :show, id: user
     end
 
@@ -39,8 +39,8 @@ describe UsersController do
   describe 'GET #edit' do
 
     before :each do
-      controller.stub!(:signed_in?).and_return(true)
-      controller.stub!(:current_user?).and_return(true)
+      controller.stub(:signed_in?).and_return(true)
+      controller.stub(:current_user?).and_return(true)
       get :edit, id: user
     end
 
@@ -89,8 +89,8 @@ describe UsersController do
 
     before :each do
       @user = create(:user, name: 'updated_user', email: 'updated@example.com')
-      controller.stub!(:signed_in?).and_return(true)
-      controller.stub!(:current_user?).and_return(true)
+      controller.stub(:signed_in?).and_return(true)
+      controller.stub(:current_user?).and_return(true)
     end
 
     it "assigns the requested user to @user" do
@@ -139,8 +139,8 @@ describe UsersController do
 
     before :each do
       @user = create(:user)
-      controller.stub!(:signed_in?).and_return(true)
-      controller.stub!(:current_user?).and_return(true)
+      controller.stub(:signed_in?).and_return(true)
+      controller.stub(:current_user?).and_return(true)
     end
 
     it "deletes the user" do
