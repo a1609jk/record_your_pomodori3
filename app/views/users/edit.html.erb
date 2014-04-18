@@ -6,5 +6,21 @@
     <h2>ユーザー更新</h2>
   </div>
 
-  <%= render 'form' %>
+  <p>
+    <%= render 'form' %>
+  </p>
+
+  <div class="alert alert-warning">
+    <p>
+      <strong>ユーザ情報の削除</strong><br />
+      ユーザ情報と関連するすべての情報を削除します。
+      この操作は取り消しできませんので注意してください。<br />
+      <%=
+        link_to 'ユーザ情報の削除', user_path(current_user),
+        method: :delete,
+        data: { confirm: '削除してもよろしいですか？'},
+        class: 'btn btn-danger btn-sm'
+      %>
+    </p>
+  </div>
 </div>
