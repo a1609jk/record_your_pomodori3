@@ -16,6 +16,10 @@ describe "sessions" do
       expect(page).to have_content('サインイン')
     end
 
+    it "has the link to new_user_path" do
+      expect(page).to have_link('こちら', new_user_path)
+    end
+
     context "with invalid information" do
 
       before :each do
