@@ -59,7 +59,13 @@ describe "users page" do
 
       describe "after saving the user" do
 
-        it "has link 'sign out'"
+        before :each do
+          click_button '更新する'
+        end
+
+        it "has link 'sign out'" do
+          expect(page).to have_link('Sign out')
+        end
 
         it "has the user name in title"
 
